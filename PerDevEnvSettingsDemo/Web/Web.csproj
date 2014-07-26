@@ -94,13 +94,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\web.config" />
+    <Content Include="Views\web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="packages.config" />
     <Content Include="Views\Home\Index.cshtml" />
-    <Content Include="configSource\connectionStrings.Debug.config" />
-    <Content Include="configSource\appSettings.Debug.config" />
-    <Content Include="configSource\appSettings.Release.config" />
-    <Content Include="configSource\connectionStrings.Release.config" />
+    <None Include="configSource\connectionStrings.Debug.config" />
+    <None Include="configSource\appSettings.Debug.config" />
+    <None Include="configSource\appSettings.Release.config" />
+    <None Include="configSource\connectionStrings.Release.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
