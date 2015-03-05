@@ -1,0 +1,41 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <label>
+        Properties - unconditional serialization:
+    </label>
+    <ul id="list1"></ul>
+    <label>
+        Properties - conditional serialization:
+    </label>
+    <ul id="list2"></ul>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script>
+        $.getJSON("/api/Blog/GetPostsUnconditional")
+            .done(function (myData) {
+                for (var name in myData) {
+                    if (myData.hasOwnProperty(name)) {
+                        $("#list1").append("<li>" + name + "</li>");
+                    }
+                }
+            });
+        $.getJSON("/api/Blog/GetPostsConditional")
+            .done(function (myData) {
+                for (var name in myData) {
+                    if (myData.hasOwnProperty(name)) {
+                        $("#list2").append("<li>" + name + "</li>");
+                    }
+                }
+            });
+    </script>
+</body>
+</html>
