@@ -7,6 +7,9 @@ namespace Targets
     {
         public static IReadOnlyList<TOut> ToConvertedList<TIn, TOut>(this IReadOnlyList<TIn> input, Converter<TIn, TOut> converter)
         {
+            if (input == null) throw new ArgumentNullException("input");
+            if (converter == null) throw new ArgumentNullException("converter");
+
             var output = new TOut[input.Count];
             for (int i = 0; i < output.Length; i++)
             {
@@ -17,6 +20,9 @@ namespace Targets
 
         public static IReadOnlyList<TOut> ToConvertedListHybrid<TIn, TOut>(this IReadOnlyList<TIn> input, Converter<TIn, TOut> converter)
         {
+            if (input == null) throw new ArgumentNullException("input");
+            if (converter == null) throw new ArgumentNullException("converter");
+
             var inputArray = input as TIn[];
             if (inputArray != null)
             {
